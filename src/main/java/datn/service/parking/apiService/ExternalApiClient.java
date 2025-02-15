@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.UUID;
 
-@FeignClient(name = "common", url = "localhost:8081/api/v1")
+@FeignClient(name = "common", url = "common-service:8081/api/v1")
 public interface ExternalApiClient{
 //    private final String apikey = "internalApikey";
     @GetMapping("/account/infor")

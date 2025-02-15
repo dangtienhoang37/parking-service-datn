@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
-@FeignClient(name = "OCR", url = "localhost:8000")
+@FeignClient(name = "OCR", url = "ocr-service:8000")
 public interface ExternalOCR {
     //    private final String apikey = "internalApikey";
 //    @GetMapping("/account/infor")

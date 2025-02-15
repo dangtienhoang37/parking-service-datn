@@ -20,15 +20,20 @@ public class RecordHistory {
     @ManyToOne
     @JoinColumn(name = "parkingId", referencedColumnName = "id")
     private Parking parking;
+//    @ManyToOne
+//    @JoinColumn(name = "currentRecordId", referencedColumnName = "id")
     @ManyToOne
     @JoinColumn(name = "accountId", referencedColumnName = "id")
     private Account account;
     private int spotIndex;
     private String lPlateNumber;
+    private String imageUrlIn;
+    private String imageUrlOut;
+    private UUID sessionId;
     private Instant entryTime;
     private Instant endTime;
-    private Instant dayTime;
-    private Instant nightTime;
+    private int dayTime;
+    private int nightTime;
     private Long totalCost;
 
 }

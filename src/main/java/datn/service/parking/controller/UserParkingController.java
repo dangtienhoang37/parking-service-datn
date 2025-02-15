@@ -39,6 +39,28 @@ public class UserParkingController {
                                 ) {
         return inOutService.checkout(deviceId, accountId,sessionId, timestamp,token,parkingId);
     }
+    @GetMapping("/detail")
+    public ApiResponse currentDetail(@RequestHeader("Authorization") String token){
+        return inOutService.currentDetail(token);
+    }
     // checkout
-
+    // user send checkout manually
+    @PostMapping("/manually/checkout")
+    public ApiResponse userSendChechoutManually(@RequestHeader("Authorization")String token){
+        return inOutService.userCheckoutManually(token);
+    }
+//    @GetMapping("/manually/checkout/")
+    // get list manually by parking
+    @PostMapping("/manually/checkout/{id}")
+    public ApiResponse confirmChechoutManually(@RequestHeader("Authorization")String token, @PathVariable("id") UUID recordCM){
+        return inOutService.confirmCheckoutManually(token,recordCM);
+    }
+    @GetMapping("/manually")
+    public ApiResponse getAll(@RequestHeader("Authorization") String token){
+        return inOutService.getAllmanually(token);
+    }
+//    @GetMapping("/manually")
+//    public ApiResponse gee(@RequestHeader("Authorization") String token){
+//        return inOutService.getAllmanually(token);
+//    }
 }

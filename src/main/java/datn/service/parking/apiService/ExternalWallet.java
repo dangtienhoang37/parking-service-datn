@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
-@FeignClient(name = "wallet", url = "localhost:8083")
+@FeignClient(name = "wallet", url = "payment-service:8083")
 public interface ExternalWallet {
     @PostMapping("/api/v3/payment/user/sub-balance")
     ApiResponse makeNewTrans(@RequestBody SubBalanceRequest request);

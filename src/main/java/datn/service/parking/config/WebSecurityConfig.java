@@ -63,20 +63,20 @@ public class WebSecurityConfig {
 
         return http.build();
     }
-    // Cấu hình CORS
-    @Bean
-    public UrlBasedCorsConfigurationSource  corsConfigurationSource(){
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("http://localhost:5173");
-        corsConfiguration.addAllowedOrigin("*");
-
-        corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.addAllowedHeader("*");
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**",corsConfiguration);
-        return source;
-    }
+//    // Cấu hình CORS
+//    @Bean
+//    public UrlBasedCorsConfigurationSource  corsConfigurationSource(){
+//        CorsConfiguration corsConfiguration = new CorsConfiguration();
+//        corsConfiguration.addAllowedOrigin("http://localhost:5173");
+//        corsConfiguration.addAllowedOrigin("*");
+//
+//        corsConfiguration.addAllowedMethod("*");
+//        corsConfiguration.addAllowedHeader("*");
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**",corsConfiguration);
+//        return source;
+//    }
 
 
 

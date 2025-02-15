@@ -24,13 +24,13 @@ import java.util.UUID;
 @IntegrationComponentScan
 public class MQTTConfig {
     // tạo ra nhiều topic cho các chức năng khác nhau
-    private static final String MQTT_BROKER_URL = "tcp://localhost:1883"; // Đổi theo URL broker của bạn
+    private static final String MQTT_BROKER_URL = "tcp://test.mosquitto.org:1883"; // Đổi theo URL broker của bạn
     private static final String CLIENT_ID = UUID.randomUUID().toString();
     private static final String TOPIC = "handle";
     private static final String CHECKIN_TOPIC = "checkin";
-    private static final String CHECKOUT_TOPIC = "checkout";
-    private static final String USER_NAME = "admin";
-    private static final String PASSWD = "12345678";
+    private static final String CHECKOUT_TOPIC = "CameraReceiver_checkout";
+//    private static final String USER_NAME = "admin";
+//    private static final String PASSWD = "12345678";
 //$7$101$K/i02LCF2zFujYQK$x8C02EPNKBMkr3x7NF0OhODUbxmN0xQhnl+wLL3dcqhL7iPPxS4+aUv6FXBtN1ecTm6BawJyjJcTMlGGJRqdoA==
 
     @Bean
@@ -38,8 +38,8 @@ public class MQTTConfig {
         DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
         MqttConnectOptions options = new MqttConnectOptions();
         options.setServerURIs(new String[]{MQTT_BROKER_URL});
-        options.setUserName(USER_NAME);
-        options.setPassword(PASSWD.toCharArray());
+//        options.setUserName(USER_NAME);
+//        options.setPassword(PASSWD.toCharArray());
         options.setCleanSession(true);
         factory.setConnectionOptions(options);
 
@@ -59,6 +59,7 @@ public class MQTTConfig {
         adapter.setOutputChannel(mqttInputChannel());
         return adapter;
     }
+    @Bean
     public MqttPahoMessageDrivenChannelAdapter mqttInboundCheckout(MqttPahoClientFactory mqttPahoClientFactory){
 //        String clientId = UUID.randomUUID().toString();
         MqttPahoMessageDrivenChannelAdapter adapter =

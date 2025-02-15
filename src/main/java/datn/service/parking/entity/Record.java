@@ -27,6 +27,9 @@ public class Record {
     private int spotIndex;
     private String lPlateNumber;
     private Instant entryTime;
+    private UUID sessionId;
+    private String imageUrlIn;
+    private String imageUrlOut;
     @OneToOne
     @JoinColumn(name="ReservationScheduleId", referencedColumnName = "id")
     private ReservationSchedule reservationSchedule;
